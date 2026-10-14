@@ -4,9 +4,256 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COMSATS Website</title>
+    <title>COMSATS</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            min-height: 100vh;
+            color: #f8fafc;
+            background: linear-gradient(135deg, #10152f, #25245b, #533b83);
+            display: flex;
+            flex-direction: column;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 8%;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #c4b5fd;
+        }
+
+        .status {
+            font-size: 0.85rem;
+            color: #d1fae5;
+            background: rgba(16, 185, 129, 0.13);
+            border: 1px solid rgba(110, 231, 183, 0.3);
+            padding: 9px 14px;
+            border-radius: 30px;
+        }
+
+        .status::before {
+            content: "●";
+            color: #6ee7b7;
+            margin-right: 8px;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px 100px;
+        }
+
+        .tag {
+            color: #c4b5fd;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-size: clamp(2.8rem, 7vw, 5.5rem);
+            line-height: 1.1;
+            letter-spacing: -2px;
+            margin-bottom: 24px;
+        }
+
+        h1 span {
+            background: linear-gradient(90deg, #c4b5fd, #f0abfc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .intro {
+            color: #d1d5e8;
+            max-width: 560px;
+            line-height: 1.8;
+            font-size: 1.05rem;
+            margin-bottom: 38px;
+        }
+
+        .button {
+            display: inline-block;
+            text-decoration: none;
+            color: #21143d;
+            background: #e9d5ff;
+            padding: 14px 25px;
+            border-radius: 12px;
+            font-weight: 700;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            background: #f5d0fe;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+            width: min(850px, 100%);
+            margin-top: 75px;
+        }
+
+        .card {
+            text-align: left;
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.13);
+            background: rgba(255, 255, 255, 0.07);
+            border-radius: 18px;
+            backdrop-filter: blur(12px);
+            transition: transform 0.25s, background 0.25s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .icon {
+            font-size: 1.6rem;
+            margin-bottom: 17px;
+        }
+
+        .card h2 {
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #c6c9df;
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            flex-wrap: wrap;
+            padding: 22px 8%;
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            color: #b8bad1;
+            font-size: 0.82rem;
+        }
+
+        #clock {
+            color: #e9d5ff;
+            font-variant-numeric: tabular-nums;
+        }
+
+        @media (max-width: 650px) {
+            nav {
+                padding: 22px 6%;
+            }
+
+            main {
+                padding-top: 45px;
+            }
+
+            h1 {
+                letter-spacing: -1px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+                max-width: 420px;
+                margin-top: 50px;
+            }
+
+            footer {
+                padding: 20px 6%;
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                transition: none !important;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <h1>My COMSATS website is working.</h1>
+    <nav>
+        <div class="status">Website Online</div>
+    </nav>
+
+    <main>
+        <p class="tag">Software Engineering · COMSATS</p>
+
+        <h1>A little space<br>on the <span>internet.</span></h1>
+
+        <p class="intro">
+            Welcome to my website.
+        </p>
+
+        <a class="button" href="#about">Explore my space &darr;</a>
+
+        <section class="cards" id="about">
+            <article class="card">
+                <div class="icon">⌘</div>
+                <h2>Development</h2>
+                <p>Learning, experimenting, and building projects that solve real problems.</p>
+            </article>
+
+            <article class="card">
+                <div class="icon">✳</div>
+                <h2>Creative Thinking</h2>
+                <p>Bringing together thoughtful design, useful features, and simple experiences.</p>
+            </article>
+
+            <article class="card">
+                <div class="icon">↗</div>
+                <h2>What's Next?</h2>
+                <p>More projects, more skills, and plenty of room to grow.</p>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <span>© <span id="year"></span> Anna's Space</span>
+        <span>Built with HTML, CSS & curiosity.</span>
+        <span id="clock">Loading time...</span>
+    </footer>
+
+    <script>
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+        function updateClock() {
+            document.getElementById("clock").textContent =
+                new Date().toLocaleTimeString();
+        }
+
+        updateClock();
+        setInterval(updateClock, 1000);
+    </script>
 </body>
 </html>
